@@ -12,3 +12,16 @@ body{
   font-weight: 300;
   font-style: normal;
 }
+
+.container{
+  width: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.innerContainer{
+  width: 80%;
+  height: 100vh;
+  border: 2px solid black;
+}
