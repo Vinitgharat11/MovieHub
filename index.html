@@ -1,18 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MovieHub | Javascript 01</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- todo : navbar -->
-  <div class="container">
-    <div class="innerContainer">
-      
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub | Javascript 01</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="logo">
+          <a href="/">MOVIECAFE</a>
+        </div>
+        <div class="category">
+          <p>Flims</p>
+          <div class="category-list">
+            <a class="active" href="/">All films</a>
+            <a href="/features">Features</a>
+            <a href="/">Documents</a>
+            <a href="/">short</a>
+            <a href="/">tv shows</a>
+            <a href="/">commercial</a>
+          </div>
+        </div>
+      </aside>
+      <div class="main-container">
+        <!-- navbar start -->
+        <nav class="navbar">
+          <div class="inputContainer">
+            <input
+              type="text"
+              class="inputbar"
+              placeholder="find whatever you want"
+            />
+          </div>
+          <li>
+            <a href="/">Films</a>
+            <a href="/">Social</a>
+            <a href="/">Videos</a>
+            <a href="/">News</a>
+            <a href="/">About</a>
+          </li>
+          <div class="social">
+            <img src="/logo/facebook.png" alt="" />
+            <img src="/logo/instagram.png" alt="" />
+            <img src="/logo/mail.png" alt="" />
+          </div>
+        </nav>
+        <!-- navbar end -->
+        <!-- main section start -->
+        <section>
+          <div class="title">
+            <p>All Films</p>
+            <div class="movie-dropdown">
+            <select name="" id="dropdown">
+              <option value="">All Films</option>
+              <option value="">All Films</option>
+              <option value="">All Films</option>
+            </select>
+            <select name="" id="dropdown">
+              <option value="">All Language</option>
+              <option value="">Hindi</option>
+              <option value="">Marathi</option>
+            </select>
+            <select name="" id="dropdown">
+              <option value="">All Countries</option>
+              <option value="">India</option>
+              <option value="">USA</option>
+            </select>
+            <select name="" id="dropdown">
+              <option value="">All Rating</option>
+              <option value="">5 star</option>
+              <option value="">U/A</option>
+              <option value="">A</option>
+            </select>
+            <select name="" id="dropdown">
+              <option value="">Sort by</option>
+              <option value="">Latest</option>
+              <option value="">Year</option>
+              <option value="">Liked</option>
+            </select>
+            </div>
+          </div>
+          <div class="movies" id="movies">
+            
+          </div>
+          
+        </section>
+        <!-- main section end -->
+      </div>
     </div>
-  </div>
-</body>
-<script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
