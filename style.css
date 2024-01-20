@@ -24,10 +24,16 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+  scrollbar-width: thin;
+
+}
+body::-webkit-scrollbar {
+  width: 0.1em;
 }
 .container {
   padding: 10px 50px;
   position: relative;
+  
 }
 
 /* sidebar styling */
@@ -35,7 +41,6 @@ aside {
   width: 14rem;
   height: 90vh;
   position: fixed;
-
 }
 .logo {
   margin: 30px 0px;
@@ -76,6 +81,9 @@ aside {
 }
 /* sidebar styling */
 
+section {
+  height: 200vh;
+}
 /* navbar styling */
 .inputContainer {
   width: 20rem;
@@ -120,66 +128,63 @@ aside {
 /* navbar styling */
 
 /* main section styling */
-.title{
+.title {
   display: flex;
-  
 }
 .title p {
   color: var(--primary-color);
   padding: 25px;
   font-size: 1.5rem;
 }
-.movie-dropdown{
+.movie-dropdown {
   padding: 24px;
   margin: 2px;
 }
 
-#dropdown{
-background: transparent;
-outline: none;
-border: 1px solid var(--muted);
-padding: 10px 40px;
-border-radius: 12px;
-color: var(--primary-color);
-margin: 0 8px;
+#dropdown {
+  background: transparent;
+  outline: none;
+  border: 1px solid var(--muted);
+  padding: 10px 40px;
+  border-radius: 12px;
+  color: var(--primary-color);
+  margin: 0 8px;
 }
 
-#dropdown:hover{
-
-border: 1px solid var(--active-color);
-  
+#dropdown:hover {
+  border: 1px solid var(--active-color);
 }
 select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 1px;
-  text-overflow: '';
+  text-overflow: "";
 }
-option{
- background-color: black;
- opacity: 0.2;
- padding: 10px;
-
+option {
+  background-color: black;
+  opacity: 0.2;
+  padding: 10px;
 }
 /* fetch movies */
 
-.movies{
- display: grid;
- grid-template-columns: repeat(5, minmax(10px, 1fr));
+.movies {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(10px, 1fr));
 }
 
-.movieCard{
-  /* background-color: red; */
+.movieCard {
   margin: 10px;
   padding: 2px;
-  width: 10rem;
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.movieCard img{
+.movieCard img {
   width: 8rem;
-;
 }
-.movieCard p{
+.movieCard p {
   width: 8rem;
   color: white;
   font-size: small;
@@ -189,3 +194,65 @@ option{
 /* fetch movies */
 
 /* main section styling */
+/* pagination  */
+
+#pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+#pagination-container button{
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: transparent;
+  border:1px solid var(--muted);
+ color: var(--primary-color);
+ border-radius: 2px;
+}
+#pagination-container .active{
+border: 1px solid var(--active-color);
+color: var(--active-color);
+}
+/* pagination  */
+
+/* footer */
+
+.footer{
+  border-top: 1px solid var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
+
+.social-link {
+display: flex;
+
+}
+.social-link img {
+width: 2rem;
+padding: 2px 0.1rem;
+border: 2px solid transparent;
+
+}
+.social-link img:hover {
+  cursor: pointer;
+  border: 2px solid var(--active-color);
+  border-radius: 100%;
+}
+
+.copyright{
+  color: var(--primary-color);
+  font-size: 10px;
+  display: inline-flex;
+  gap: 10px
+}
+.other-links a{
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 10px;
+
+}
+/* footer */

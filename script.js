@@ -1,28 +1,30 @@
-const movieContainer = document.getElementById('movies')
+const movieContainer = document.getElementById("movies");
+const paginationContainer = document.getElementById("pagination-container");
 
-const url = "https://moviesverse1.p.rapidapi.com/movies/1";
+const apiKey = "a4564eda00mshda6272279634f46p10f310jsn501d1234f374";
+const host = "moviesverse1.p.rapidapi.com";
+const baseUrl = "https://moviesverse1.p.rapidapi.com/movies/";
+
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "a4564eda00mshda6272279634f46p10f310jsn501d1234f374",
-    "X-RapidAPI-Host": "moviesverse1.p.rapidapi.com",
+    "X-RapidAPI-Key": apiKey,
+    "X-RapidAPI-Host": host,
   },
 };
 
-const fetchMovie = async () => {
-  const data = await fetch(url, options);
-  return data.json();
-  showMovie()
+const fetchMovies = async (page) => {
+  const url = baseUrl + page;
+  const response = await fetch(url, options);
+
+  return response.json();
 };
-fetchMovie();
 
-const showMovie = async () => {
-  const movies = await fetchMovie();
-  console.log(movies)
-
-  movies.movies.forEach((movie) => {
+const showMovie = (movies) => {
+  movieContainer.innerHTML = "";
+  movies.forEach((movie) => {
     const movieCard = document.createElement("div");
-    movieCard.classList = "movieCard";
+    movieCard.classList.add("movieCard");
     movieCard.innerHTML = `
       <img src="${movie.img}"/>
       <p>${movie.id}</p>
@@ -31,7 +33,38 @@ const showMovie = async () => {
   });
 };
 
-showMovie();
+const updatePaginationUI = () => {
+  paginationContainer.innerHTML = "";
+  for (let i = 1; i <= totalpages; i++) {
+    const button = document.createElement("button");
+    button.textContent = i;
+    button.addEventListener("click", () => changepage(i));
+    button.classList.toggle("active", i === currentpage);
+    button.disabled = i === currentpage;
+    paginationContainer.appendChild(button);
+  }
+};
 
-// script.js
+const changepage = async (newpage) => {
+  try {
+    const { movies, totalPages } = await fetchMovies(newpage);
 
+    if (!movies || !Array.isArray(movies)) {
+      throw new Error(
+        "Movies is not an array or is undefined in the API response."
+      );
+    }
+    currentpage = newpage;
+    totalpages = totalPages;
+    updatePaginationUI();
+    showMovie(movies);
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+  }
+};
+
+let totalpages = 1;
+let currentpage = 1;
+
+changepage(currentpage);
+updatePaginationUI();
